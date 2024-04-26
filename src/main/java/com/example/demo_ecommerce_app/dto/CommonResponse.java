@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CommonResponse {
-    private int code;
-    private String message;
-    private Object data;
+    private int code = 200;
+    private String message = "";
+    private Object data = null;
 }

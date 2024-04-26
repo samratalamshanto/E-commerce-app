@@ -10,8 +10,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "sell_details")
-public class SellDetailsEntity {
+public class SellDetailsEntity extends AbstractEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private Long productId;
+    private String productName;
+    private Long totalUnit;
+    private Double unitPrice;
+    private Double totalAmount;
+    private Long customerId;
+    private String customerName;
+    private String status;
 }
