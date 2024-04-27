@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "1ce3c1d1-0782-48b8-af5d-15d8bd5a260f",
+		"name": "Demo E-Commerce App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23594166"
+	},
+	"item": [
+		{
+			"name": "get wish list of a customer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/get-wish-list?customerId=1",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"get-wish-list"
+					],
+					"query": [
+						{
+							"key": "customerId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-total-sales-amount-of-a-current-day",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/get-total-sales-amount",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"get-total-sales-amount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-max-sale-certain-time-range",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/get-max-sale-certain-time-range?fromDate=2024-04-01&toDate=2024-04-30",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"get-max-sale-certain-time-range"
+					],
+					"query": [
+						{
+							"key": "fromDate",
+							"value": "2024-04-01"
+						},
+						{
+							"key": "toDate",
+							"value": "2024-04-30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-top-five-sells-product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/get-top-five-sells-product",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"get-top-five-sells-product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-last-month-top-five-sells-product-based-on-unit",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/get-last-month-top-five-sells-product-based-on-unit",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"get-last-month-top-five-sells-product-based-on-unit"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base-url",
+			"value": "localhost:9090/api/rest",
+			"type": "string"
+		}
+	]
+}
