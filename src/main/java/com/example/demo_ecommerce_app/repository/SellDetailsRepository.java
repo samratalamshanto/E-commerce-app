@@ -16,11 +16,6 @@ public interface SellDetailsRepository extends JpaRepository<SellDetailsEntity, 
             " and sellDetails.status = :status")
     Double getTotalSellAmountByDate(String givenDate, String status);
 
-    @Query(value = "select sellDetails.productName from SellDetailsEntity as sellDetails" +
-            "  where sellDetails.status ='Active' group by sellDetails.productName " +
-            " order by sum(sellDetails.totalAmount) desc fetch first 5 rows only")
-    List<?> getTopFiveSellProducts();
-
     @Query(value = "select new com.example.demo_ecommerce_app.dto.sell_details" +
             ".TopFiveProductsDto(sellDetails.productName, sum(sellDetails.totalAmount), sum(sellDetails.totalUnit)) " +
             "  from SellDetailsEntity as sellDetails" +
@@ -45,6 +40,6 @@ public interface SellDetailsRepository extends JpaRepository<SellDetailsEntity, 
             "  between to_char(cast(:startDate as date) , 'YYYY-MM-dd') and to_char(cast(:endDate as date), 'YYYY-MM-dd')" +
             "  group by date " +
             "  order by sum(sellDetails.totalAmount) desc fetch first 1 rows only")
-    List<?> getMaxSaleDateCertainDates(LocalDate startDate, LocalDate endDate);
+    List<?> getMaxSaleDateCertainDates(String startDate, String endDate);
 
 }

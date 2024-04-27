@@ -1,1 +1,63 @@
 docker run -itd --name postgres -p 5432:5432 -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=1234 postgres
+
+
+
+
+sql:
+
+insert into sell_details(product_id, product_name, total_unit, unit_price, total_amount, customer_id, customer_name,
+                         status, created_at_dt)
+values (1, 'Bag', 1, 100, 100, 1, 'samrat', 'Active', current_timestamp),
+       (2, 'Mouse', 2, 60, 120, 2, 'samrat2', 'Active', current_timestamp),
+       (1, 'Bag', 1, 100, 100, 1, 'samrat', 'Active', current_timestamp),
+       (2, 'Mouse', 2, 60, 120, 1, 'samrat', 'Active', current_timestamp),
+       (1, 'Bag', 1, 100, 100, 2, 'samrat2', 'Active', current_timestamp),
+       (3, 'Keyboard', 1, 500, 500, 1, 'samrat', 'Active', current_timestamp),
+       (3, 'Keyboard', 2, 500, 1000, 1, 'samrat', 'Active', current_timestamp),
+       (3, 'Keyboard', 1, 500, 500, 1, 'samrat', 'Active', current_timestamp),
+       (2, 'Mouse', 2, 60, 120, 2, 'samrat2', 'Active', current_timestamp);
+
+
+
+select created_at_dt, sum(total_amount) as totalSum
+from sell_details
+where created_at_dt::date between '2024-04-01'::date and '2024-04-30'::date
+group by created_at_dt
+order by totalSum desc fetch first 1 rows only;
+
+
+
+select product_name, sum(total_amount) as Amount
+from sell_details
+where sell_details.status = 'Active'
+group by product_name
+order by Amount desc fetch first 5 rows only;
+
+
+
+select product_name, sum(total_unit) as TotalUnit
+from sell_details
+where sell_details.status = 'Active'
+  and created_at_dt between '2024-04-01'::date and '2024-04-30'::date
+group by product_name
+order by TotalUnit desc fetch first 5 rows only;
+
+
+
+select *
+from sell_details
+where date_trunc('month', created_at_dt) = date_trunc('month', current_date);
+
+
+select *
+from sell_details
+where to_char(created_at_dt, 'YYYY-MM-dd') between to_char(current_date, 'YYYY-MM-dd') and to_char(current_date, 'YYYY-MM-dd');
+
+
+select cast(created_at_dt as date) as date, sum(total_amount)
+from sell_details
+where to_char(created_at_dt, 'YYYY-MM-dd') between to_char(cast('2024-04-10' as date), 'YYYY-MM-dd') and to_char(cast('2024-04-30' as date), 'YYYY-MM-dd')
+group by date
+order by sum(total_amount) desc
+    fetch first 5 rows only;
+

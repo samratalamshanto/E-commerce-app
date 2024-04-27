@@ -39,7 +39,7 @@ public class BaseRestController {
     }
 
     @GetMapping("/get-max-sale-certain-time-range")
-    public CommonResponse getMaxSaleCertainDates(@RequestParam("fromDate") LocalDate startDate, @RequestParam("toDate") LocalDate endDate) {
+    public CommonResponse getMaxSaleCertainDates(@RequestParam("fromDate") String startDate, @RequestParam("toDate") String endDate) {
         return sellDetailsService.getMaxSaleCertainDates(startDate, endDate);
     }
 }

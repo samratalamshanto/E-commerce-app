@@ -2,10 +2,12 @@ package com.example.demo_ecommerce_app.service;
 
 import com.example.demo_ecommerce_app.dto.CommonResponse;
 import com.example.demo_ecommerce_app.enums.CommonStatusEnum;
+import com.example.demo_ecommerce_app.exception.DateFormatException;
 import com.example.demo_ecommerce_app.repository.SellDetailsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
 
 @Service
@@ -46,13 +48,34 @@ public class SellDetailsService {
         return commonResponse;
     }
 
-    public CommonResponse getMaxSaleCertainDates(LocalDate startDate, LocalDate endDate) {
+    public CommonResponse getMaxSaleCertainDates(String fromDate, String toDate) {
         CommonResponse commonResponse = new CommonResponse(200, "Successfully get max sell date of certain dates.", null);
         try {
-            commonResponse.setData(sellDetailsRepository.getMaxSaleDateCertainDates(startDate, endDate));
+            if (validateDate(fromDate, toDate)) {
+                commonResponse.setData(sellDetailsRepository.getMaxSaleDateCertainDates(fromDate, toDate));
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
         return commonResponse;
+    }
+
+    private boolean validateDate(String startDate, String endDate) {
+        boolean isDateValid = true;
+        LocalDate fromDate;
+        LocalDate toDate;
+        try {
+            fromDate = LocalDate.parse(startDate);
+            toDate = LocalDate.parse(endDate);
+        } catch (DateTimeException e) {
+            throw new DateFormatException("Date format is incorrect. yyyy-MM-dd format required.");
+        } catch (Exception e) {
+            throw new RuntimeException();
+        }
+
+        if (!fromDate.isEqual(toDate) && fromDate.isAfter(toDate)) {
+            throw new DateFormatException("ToDate occurs before FromDate");
+        }
+        return isDateValid;
     }
 }
