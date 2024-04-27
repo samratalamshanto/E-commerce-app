@@ -1,6 +1,25 @@
 # E-commerce-app
 
-# API exposed:
+## Framework Details:
+
+- Spring Boot 3.2.2
+- JDK 21
+- Latest docker version
+- PostgresSql as Database
+- Slf4j for logging 
+- JUnit for testing
+
+# Docker Files:
+
+- **docker-compose.yml**
+- **Dockerfile**
+
+
+# Postman Collection:
+
+- **Demo E-Commerce App.Postman_collection.json**
+
+# API Details:
 
 - **Task**: Create an API to return the wish list of a customer.
 - **End Point**: {{base-url}}/get-wish-list?customerId=inputCustomerId
@@ -123,21 +142,8 @@
 }
 ```
 
-## Framework Details:
-
-- Spring Boot 3.2.2
-- JDK 21
-- Latest docker version
-- PostgresSql as Database
-
-# Docker Files:
-
-- **docker-compose.yml**
-- **Dockerfile**
-
-
-# Postman Collection
-
-- **Demo E-Commerce App.Postman_collection.json**
-
+# Instructions: 
+- **First clone the project**. 
+- **Run the command _"docker compose up"_**. 
+- **Test endpoints using the given Postman collection**.
 
