@@ -21,7 +21,7 @@
 
 # API Details:
 
-- **Task**: Create an API to return the wish list of a customer.
+- **Task 1**: Create an API to return the wish list of a customer.
 - **End Point**: {{base-url}}/get-wish-list?customerId=inputCustomerId
 - **Response**:
 - If Customer exits:
@@ -61,7 +61,7 @@
 }
 ```
 
-- **Task**: Create an API to return the total sale amount of the current day.
+- **Task 2**: Create an API to return the total sale amount of the current day.
 - **End Point**: {{base-url}}/get-total-sales-amount
 - **Response**:
 ```
@@ -72,7 +72,7 @@
 }
 ```
 
-- **Task**: Create an API to return the max sale day of a certain time range.
+- **Task 3**: Create an API to return the max sale day of a certain time range.
 - **End Point**: {{base-url}}/get-max-sale-certain-time-range?fromDate=2024-04-01&toDate=2024-04-30
 - **Response**:
 ```
@@ -93,7 +93,7 @@
 }
 ```
 
-- **Task**: Create an API to return top 5 selling items of all time (based on total sale amount).
+- **Task 4**: Create an API to return top 5 selling items of all time (based on total sale amount).
 - **End Point**: {{base-url}}/get-top-five-sells-product
 - **Response**:
 ```
@@ -120,7 +120,7 @@
 }
 ```
 
-- **Task**: Create an API to return top 5 selling items of the last month (based on number of sales).
+- **Task 5**: Create an API to return top 5 selling items of the last month (based on number of sales).
 - **End Point**: {{base-url}}/get-last-month-top-five-sells-product-based-on-unit
 - **Response**:
 ```
