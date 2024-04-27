@@ -14,6 +14,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+import static com.example.demo_ecommerce_app.util.Utility.ObjectToJson;
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -29,7 +31,7 @@ public class WishListService {
                 checkCustomer(customerId);
             }
             commonResponse.setData(wishList);
-            log.info("WishListService::getCustomerWishList() CustomerID={}, CommonResponse={}", customerId, commonResponse);
+            log.info("WishListService::getCustomerWishList() CustomerID={}, CommonResponse={}", customerId, ObjectToJson(commonResponse));
         } catch (Exception e) {
             log.error("WishListService::getCustomerWishList() Error={}", e.getMessage());
             throw new RuntimeException(e);

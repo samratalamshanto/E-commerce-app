@@ -12,6 +12,8 @@ import org.springframework.util.ObjectUtils;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 
+import static com.example.demo_ecommerce_app.util.Utility.ObjectToJson;
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -30,7 +32,7 @@ public class SellDetailsService {
             log.error("SellDetailsService::getTotalSaleAmount() Error={}", e.getMessage());
             throw new RuntimeException(e);
         }
-        log.info("SellDetailsService::getTotalSaleAmount() Success, CommonResponse={}", commonResponse);
+        log.info("SellDetailsService::getTotalSaleAmount() Success, CommonResponse={}", ObjectToJson(commonResponse));
         return commonResponse;
     }
 
@@ -42,7 +44,7 @@ public class SellDetailsService {
             log.error("SellDetailsService::getTopFiveSellsProducts() Error={}", e.getMessage());
             throw new RuntimeException(e);
         }
-        log.info("SellDetailsService::getTotalSaleAmount() Success, CommonResponse={}", commonResponse);
+        log.info("SellDetailsService::getTotalSaleAmount() Success, CommonResponse={}", ObjectToJson(commonResponse));
         return commonResponse;
     }
 
@@ -52,7 +54,7 @@ public class SellDetailsService {
             LocalDate today = LocalDate.now();
             LocalDate prevMonthDate = today.minusMonths(1);
             commonResponse.setData(sellDetailsRepository.getTopFiveSellProductsBasedOnNumberOfUnits(prevMonthDate));
-            log.info("SellDetailsService::getTotalSaleAmount() Success, prevMonthDate={}, CommonResponse={}", prevMonthDate, commonResponse);
+            log.info("SellDetailsService::getTotalSaleAmount() Success, prevMonthDate={}, CommonResponse={}", prevMonthDate, ObjectToJson(commonResponse));
         } catch (Exception e) {
             log.error("SellDetailsService::getTopFiveSellsProductsOfLastMonthBasedOnTotalUnit() Error={}", e.getMessage());
             throw new RuntimeException(e);
@@ -65,7 +67,7 @@ public class SellDetailsService {
         try {
             if (validateDate(fromDate, toDate)) {
                 commonResponse.setData(sellDetailsRepository.getMaxSaleDateCertainDates(fromDate, toDate));
-                log.info("SellDetailsService::getMaxSaleCertainDates() Success, FromDate={} and ToDate={}, CommonResponse={}", fromDate, toDate commonResponse);
+                log.info("SellDetailsService::getMaxSaleCertainDates() Success, FromDate={} and ToDate={}, CommonResponse={}", fromDate, toDate, ObjectToJson(commonResponse));
             }
         } catch (Exception e) {
             log.error("SellDetailsService::getMaxSaleCertainDates() Error={}", e.getMessage());
