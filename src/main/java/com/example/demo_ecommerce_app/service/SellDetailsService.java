@@ -18,7 +18,7 @@ public class SellDetailsService {
     public CommonResponse getTotalSaleAmount() {
         CommonResponse commonResponse = new CommonResponse(200, "Successfully get total sell amount", null);
         try {
-            Double totalSell = sellDetailsRepository.getTotalSellAmountByDate(LocalDate.now().toString(), CommonStatusEnum.Active.toString());
+            Double totalSell = sellDetailsRepository.getTotalSellAmountByDate(LocalDate.now(), CommonStatusEnum.Active.toString());
             commonResponse.setData(totalSell);
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -68,7 +68,7 @@ public class SellDetailsService {
             fromDate = LocalDate.parse(startDate);
             toDate = LocalDate.parse(endDate);
         } catch (DateTimeException e) {
-            throw new DateFormatException("Date format is incorrect. yyyy-MM-dd format required.");
+            throw new DateFormatException();
         } catch (Exception e) {
             throw new RuntimeException();
         }

@@ -14,7 +14,7 @@ public interface SellDetailsRepository extends JpaRepository<SellDetailsEntity, 
     @Query(value = "select sum(sellDetails.totalAmount) from SellDetailsEntity sellDetails " +
             " where cast(sellDetails.createdAtDt as date) = cast(:givenDate as date)" +
             " and sellDetails.status = :status")
-    Double getTotalSellAmountByDate(String givenDate, String status);
+    Double getTotalSellAmountByDate(LocalDate givenDate, String status);
 
     @Query(value = "select new com.example.demo_ecommerce_app.dto.sell_details" +
             ".TopFiveProductsDto(sellDetails.productName, sum(sellDetails.totalAmount), sum(sellDetails.totalUnit)) " +
