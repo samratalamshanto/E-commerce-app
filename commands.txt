@@ -1,11 +1,1 @@
 docker run -itd --name postgres -p 5432:5432 -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=1234 postgres
-
-
-//sell_details
-
-insert into sell_details(product_id,product_name,total_unit,unit_price,total_amount,customer_id,customer_name,status,created_at_dt)
-values (1,'bag',1,100,100,1,'samrat','Active',current_timestamp);
-
-
-insert into sell_details(product_id,product_name,total_unit,unit_price,total_amount,customer_id,customer_name,status,created_at_dt)
-values (1,'mouse',2,60,120,1,'samrat','Active',current_timestamp);

@@ -25,4 +25,14 @@ public class BaseRestController {
     public CommonResponse getTotalSaleAmount() {
         return sellDetailsService.getTotalSaleAmount();
     }
+
+    @GetMapping("/get-top-five-sells-product")
+    public CommonResponse getTopFiveSellsProducts() {
+        return sellDetailsService.getTopFiveSellsProducts();
+    }
+
+    @GetMapping("/get-last-month-top-five-sells-product-based-on-unit")
+    public CommonResponse getLastMonthTopFiveSellsProductsBasedOnUnit() {
+        return sellDetailsService.getTopFiveSellsProductsOfLastMonthBasedOnTotalUnit();
+    }
 }
