@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
+
 @RestController
 @RequestMapping("/api/rest")
 @RequiredArgsConstructor
@@ -34,5 +36,10 @@ public class BaseRestController {
     @GetMapping("/get-last-month-top-five-sells-product-based-on-unit")
     public CommonResponse getLastMonthTopFiveSellsProductsBasedOnUnit() {
         return sellDetailsService.getTopFiveSellsProductsOfLastMonthBasedOnTotalUnit();
+    }
+
+    @GetMapping("/get-max-sale-certain-time-range")
+    public CommonResponse getMaxSaleCertainDates(@RequestParam("fromDate") LocalDate startDate, @RequestParam("toDate") LocalDate endDate) {
+        return sellDetailsService.getMaxSaleCertainDates(startDate, endDate);
     }
 }

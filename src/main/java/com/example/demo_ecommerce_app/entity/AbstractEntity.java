@@ -13,15 +13,12 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @MappedSuperclass
 public class AbstractEntity {
-    private LocalDate createdDt;
     private Timestamp createdAtDt;
     private Long createdBy;
     private String createdByUserName;
-    private LocalDate updatedDt;
     private Timestamp updatedAtDt;
     private Long updatedBy;
     private String updatedByUserName;
-    private LocalDate deletedDt;
     private Timestamp deletedAtDt;
     private Long deletedBy;
     private String deletedByUserName;

@@ -24,7 +24,6 @@ public class SellDetailsService {
         return commonResponse;
     }
 
-
     public CommonResponse getTopFiveSellsProducts() {
         CommonResponse commonResponse = new CommonResponse(200, "Successfully get total sell amount", null);
         try {
@@ -36,11 +35,21 @@ public class SellDetailsService {
     }
 
     public CommonResponse getTopFiveSellsProductsOfLastMonthBasedOnTotalUnit() {
-        CommonResponse commonResponse = new CommonResponse(200, "Successfully get total sell amount of last month.", null);
+        CommonResponse commonResponse = new CommonResponse(200, "Successfully get total sell of last month based on total unit.", null);
         try {
             LocalDate today = LocalDate.now();
             LocalDate prevMonthDate = today.minusMonths(1);
             commonResponse.setData(sellDetailsRepository.getTopFiveSellProductsBasedOnNumberOfUnits(prevMonthDate));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return commonResponse;
+    }
+
+    public CommonResponse getMaxSaleCertainDates(LocalDate startDate, LocalDate endDate) {
+        CommonResponse commonResponse = new CommonResponse(200, "Successfully get max sell date of certain dates.", null);
+        try {
+            commonResponse.setData(sellDetailsRepository.getMaxSaleDateCertainDates(startDate, endDate));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

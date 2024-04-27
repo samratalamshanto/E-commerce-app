@@ -38,4 +38,13 @@ public interface SellDetailsRepository extends JpaRepository<SellDetailsEntity, 
             "  order by sum(sellDetails.totalUnit) desc fetch first 5 rows only")
     List<TopFiveProductsDto> getTopFiveSellProductsBasedOnNumberOfUnits(LocalDate prevMonthDate);
 
+    @Query(value = "select cast(sellDetails.createdAtDt as date) as date" +
+            "  from SellDetailsEntity as sellDetails" +
+            "  where sellDetails.status ='Active' " +
+            "  and to_char(sellDetails.createdAtDt, 'YYYY-MM-dd') " +
+            "  between to_char(cast(:startDate as date) , 'YYYY-MM-dd') and to_char(cast(:endDate as date), 'YYYY-MM-dd')" +
+            "  group by date " +
+            "  order by sum(sellDetails.totalAmount) desc fetch first 1 rows only")
+    List<?> getMaxSaleDateCertainDates(LocalDate startDate, LocalDate endDate);
+
 }
