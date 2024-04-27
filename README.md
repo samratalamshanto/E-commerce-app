@@ -22,7 +22,7 @@
 # API Details:
 
 - **Task 1**: Create an API to return the wish list of a customer.
-- **End Point**: {{base-url}}/get-wish-list?customerId=inputCustomerId
+- **End Point**: {{base-url}}/get-wish-list?customerId=**inputCustomerId**
 - **Response**:
 - If Customer exits:
 ```
@@ -73,7 +73,7 @@
 ```
 
 - **Task 3**: Create an API to return the max sale day of a certain time range.
-- **End Point**: {{base-url}}/get-max-sale-certain-time-range?fromDate=2024-04-01&toDate=2024-04-30
+- **End Point**: {{base-url}}/get-max-sale-certain-time-range?fromDate=**inputFromDate**&toDate=**inputToDate**
 - **Response**:
 ```
 {
