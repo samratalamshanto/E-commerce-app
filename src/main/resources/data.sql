@@ -1,3 +1,4 @@
+DELETE FROM public.sell_details ;
 INSERT INTO public.sell_details ( created_at_dt, created_by, created_by_user_name, deleted_at_dt, deleted_by, deleted_by_user_name, updated_at_dt, updated_by, updated_by_user_name, customer_id, customer_name, product_id, product_name, status, total_amount, total_unit, unit_price) VALUES ( '2024-04-27 05:31:08.914000', null, null, null, null, null, null, null, null, 1, 'samrat', 1, 'Bag', 'Active', 100, 1, 100);
 INSERT INTO public.sell_details ( created_at_dt, created_by, created_by_user_name, deleted_at_dt, deleted_by, deleted_by_user_name, updated_at_dt, updated_by, updated_by_user_name, customer_id, customer_name, product_id, product_name, status, total_amount, total_unit, unit_price) VALUES ( '2024-04-27 05:31:08.914000', null, null, null, null, null, null, null, null, 2, 'samrat2', 1, 'Bag', 'Active', 100, 1, 100);
 INSERT INTO public.sell_details ( created_at_dt, created_by, created_by_user_name, deleted_at_dt, deleted_by, deleted_by_user_name, updated_at_dt, updated_by, updated_by_user_name, customer_id, customer_name, product_id, product_name, status, total_amount, total_unit, unit_price) VALUES ( '2024-04-27 05:31:08.914000', null, null, null, null, null, null, null, null, 1, 'samrat', 3, 'Keyboard', 'Active', 500, 1, 500);
@@ -8,13 +9,13 @@ INSERT INTO public.sell_details ( created_at_dt, created_by, created_by_user_nam
 INSERT INTO public.sell_details ( created_at_dt, created_by, created_by_user_name, deleted_at_dt, deleted_by, deleted_by_user_name, updated_at_dt, updated_by, updated_by_user_name, customer_id, customer_name, product_id, product_name, status, total_amount, total_unit, unit_price) VALUES ( '2024-04-27 05:31:08.914000', null, null, null, null, null, null, null, null, 1, 'samrat', 3, 'Keyboard', 'Active', 1000, 2, 500);
 INSERT INTO public.sell_details ( created_at_dt, created_by, created_by_user_name, deleted_at_dt, deleted_by, deleted_by_user_name, updated_at_dt, updated_by, updated_by_user_name, customer_id, customer_name, product_id, product_name, status, total_amount, total_unit, unit_price) VALUES ( '2024-04-27 05:31:08.914000', null, null, null, null, null, null, null, null, 2, 'samrat2', 2, 'Mouse', 'Active', 120, 2, 60);
 
-
+DELETE FROM public.customers ;
 INSERT INTO public.customers ( created_at_dt, created_by, created_by_user_name, deleted_at_dt, deleted_by, deleted_by_user_name, updated_at_dt, updated_by, updated_by_user_name, address, email, first_name, last_name, phone, status) VALUES ( '2024-04-27 12:53:03.000000', null, null, null, null, null, null, null, null, null, 'samrat@gmail.com', 'samrat', null, '12345678', 'Active');
 
-
+DELETE FROM public.items ;
 INSERT INTO public.items ( created_at_dt, created_by, created_by_user_name, deleted_at_dt, deleted_by, deleted_by_user_name, updated_at_dt, updated_by, updated_by_user_name, description, name, price, status) VALUES ( '2024-04-27 12:57:16.000000', null, null, null, null, null, null, null, null, 'Bag', 'Bag', 100, 'Active');
 INSERT INTO public.items ( created_at_dt, created_by, created_by_user_name, deleted_at_dt, deleted_by, deleted_by_user_name, updated_at_dt, updated_by, updated_by_user_name, description, name, price, status) VALUES ( '2024-04-27 12:57:19.000000', null, null, null, null, null, null, null, null, 'Keyboard', 'Keyboard', 500, 'Active');
 INSERT INTO public.items ( created_at_dt, created_by, created_by_user_name, deleted_at_dt, deleted_by, deleted_by_user_name, updated_at_dt, updated_by, updated_by_user_name, description, name, price, status) VALUES ( '2024-04-27 12:57:18.000000', null, null, null, null, null, null, null, null, 'Mouse', 'Mouse', 60, 'Active');
 
-
+DELETE FROM public.wish_list ;
 INSERT INTO public.wish_list ( created_at_dt, created_by, created_by_user_name, deleted_at_dt, deleted_by, deleted_by_user_name, updated_at_dt, updated_by, updated_by_user_name, customer_id, customer_name, product_description, product_id, product_name, product_price, status) VALUES ( '2024-04-27 12:55:49.000000', null, null, null, null, null, null, null, null, 1, 'samrat', 'Bag', 1, 'Bag', 100, 'Active');
