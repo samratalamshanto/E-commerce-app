@@ -16,9 +16,7 @@ public class CustomerEntity extends AbstractEntity {
     private Long id;
     private String firstName;
     private String lastName;
-    @Column(unique = true)
     private String email;
-    @Column(unique = true)
     private String phone;
     private String address;
     private String status;

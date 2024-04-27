@@ -6,6 +6,7 @@ import com.example.demo_ecommerce_app.exception.DateFormatException;
 import com.example.demo_ecommerce_app.repository.SellDetailsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 import java.time.DateTimeException;
 import java.time.LocalDate;
@@ -19,6 +20,9 @@ public class SellDetailsService {
         CommonResponse commonResponse = new CommonResponse(200, "Successfully get total sell amount", null);
         try {
             Double totalSell = sellDetailsRepository.getTotalSellAmountByDate(LocalDate.now(), CommonStatusEnum.Active.toString());
+            if (ObjectUtils.isEmpty(totalSell)) {
+                totalSell = 0.0;
+            }
             commonResponse.setData(totalSell);
         } catch (Exception e) {
             throw new RuntimeException(e);

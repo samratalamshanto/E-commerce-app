@@ -17,7 +17,12 @@ class SellDetailsServiceTest {
 
     @Test
     void getTotalSaleAmount() {
-        assertEquals("1200.0", sellDetailsRepository.getTotalSellAmountByDate(LocalDate.parse("2024-04-27"), CommonStatusEnum.Active.toString()).toString());
+        assertEquals("2660.0", sellDetailsRepository.getTotalSellAmountByDate(LocalDate.parse("2024-04-27"), CommonStatusEnum.Active.toString()).toString());
+    }
+
+    @Test
+    void getTotalSaleAmountTest2() {
+        assertEquals(null, sellDetailsRepository.getTotalSellAmountByDate(LocalDate.parse("2024-04-26"), CommonStatusEnum.Active.toString()));
     }
 
     @Test
