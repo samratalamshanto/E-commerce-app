@@ -8,6 +8,7 @@ import com.example.demo_ecommerce_app.exception.CustomerNotFoundException;
 import com.example.demo_ecommerce_app.repository.CustomerRepository;
 import com.example.demo_ecommerce_app.repository.WishListRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class WishListService {
     private final WishListRepository wishListRepository;
     private final CustomerRepository customerRepository;
@@ -27,7 +29,9 @@ public class WishListService {
                 checkCustomer(customerId);
             }
             commonResponse.setData(wishList);
+            log.info("WishListService::getCustomerWishList() CustomerID={}, CommonResponse={}", customerId, commonResponse);
         } catch (Exception e) {
+            log.error("WishListService::getCustomerWishList() Error={}", e.getMessage());
             throw new RuntimeException(e);
         }
         return commonResponse;
@@ -35,6 +39,7 @@ public class WishListService {
 
     private void checkCustomer(Long customerId) {
         Optional<CustomerEntity> customerEntity = customerRepository.findByIdAndStatus(customerId, CommonStatusEnum.Active.toString());
+        log.info("WishListService::checkCustomer() CustomerID={}, CustomerEntity={}", customerId, customerEntity);
         if (!customerEntity.isPresent()) {
             throw new CustomerNotFoundException();
         }
