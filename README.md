@@ -3,6 +3,13 @@
 # API exposed:
 
 - Create an API to return the wish list of a customer.
+- End Point: {{base-url}}/get-wish-list?customerId=inputCustomerId
+- Response:
+- 
+
+
+
+
 - Create an API to return the total sale amount of the current day.
 - Create an API to return the max sale day of a certain time range.
 - Create an API to return top 5 selling items of all time (based on total sale amount).
@@ -23,4 +30,6 @@
 
 # Postman Collection
 
-- File Name: **Demo E-Commerce App.Postman_collection.json**
+- **Demo E-Commerce App.Postman_collection.json**
+
+
